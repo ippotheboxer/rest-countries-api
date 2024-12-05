@@ -5,3 +5,13 @@
 * {
   font-family: "Nunito Sans", sans-serif;
 }
+
+@layer components {
+  .header {
+    background-color: hsl(0, 0%, 100%);
+    border-bottom: 3px solid #F0F0F0;
+  }
+  .content {
+    background-color: hsl(0, 0%, 98%);
+  }
+}
