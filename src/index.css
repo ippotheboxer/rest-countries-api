@@ -14,11 +14,13 @@
   .content {
     background-color: hsl(0, 0%, 98%);
   }
-  .formInput {
-    width: 400px;
-    color: hsl(0, 0%, 52%);
+  .topMenu {
+    color: hsl(0, 0%, 52%);  
   }
   .glassIcon {
     color: hsl(0, 0%, 52%);
+  }
+  .filterWidth {
+    width: 240px;
   }
 }
