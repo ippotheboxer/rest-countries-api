@@ -11,7 +11,7 @@
     background-color: hsl(0, 0%, 100%);
     border-bottom: 3px solid #F0F0F0;
   }
-  .content {
+  main {
     background-color: hsl(0, 0%, 98%);
   }
   .topMenu {
@@ -22,5 +22,8 @@
   }
   .filterWidth {
     width: 240px;
+  }
+  .countryFlag {
+    @apply md:h-44;
   }
 }
