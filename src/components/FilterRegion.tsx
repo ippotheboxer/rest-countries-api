@@ -10,13 +10,13 @@ const FilterRegion = () => {
       };
 
     return (
-        <div className="flex flex-col h-fit justify-center items-start  rounded-sm">
+        <div className="flex flex-col h-fit justify-center items-start">
             {open ? ( <>
                 <button onClick={handleOpen} 
-                className='filterWidth text-sm flex flex-row items-center justify-between bg-white py-3 px-6'>
+                className='lightShadow rounded-sm filterWidth text-sm flex flex-row items-center justify-between bg-white py-3 px-6'>
                     Filter by Region <RiArrowDropDownLine className='ml-8 text-lg'/>
                     </button>
-                <div className='filterWidth mt-2 bg-white py-3 px-6 z-10'>
+                <div className='filterWidth mt-2 bg-white py-3 px-6 z-10 lightShadow rounded-sm'>
                     <ul className="menu mt-1 flex flex-col text-sm">
                         <li className='pb-1'>
                             <button>Africa</button>
@@ -38,7 +38,7 @@ const FilterRegion = () => {
                 </>
                 
             ) : <button onClick={handleOpen} 
-                className='filterWidth text-sm flex flex-row items-center justify-between bg-white py-3 px-6'>
+                className='lightShadow rounded-sm filterWidth text-sm flex flex-row items-center justify-between bg-white py-3 px-6'>
                 Filter by Region <RiArrowDropRightLine className='ml-8 text-lg'/>
                 </button>}
         </div>

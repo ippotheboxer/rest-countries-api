@@ -31,9 +31,10 @@ function App() {
           </div>
           
         <div className='grid grid-cols-1 pt-10 lg:pt-2 lg:grid-cols-4 2xl:grid-cols-6 gap-12 lg:gap-16 2xl:gap-20 px-5 lg:px-0'>
-          {countries.map(country => (
+          {countries.map((country, index) => (
             <Card 
-            key={country}
+            key={index}
+            id={index}
             img={country.flags.png} 
             country={country.name.common} 
             region={country.region} 
