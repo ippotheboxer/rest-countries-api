@@ -4,6 +4,7 @@ import FilterRegion from '../components/FilterRegion';
 import Card from '../components/Card';
 import { getCountries } from '../api/countries';
 import { ThemeContext } from '../context/ThemeContext';
+import { CountryGeneral } from '../Model';
 
 const Home = () => {
   const { theme } = useContext(ThemeContext);
@@ -14,6 +15,7 @@ const Home = () => {
       (async () => {
       const {data} = await getCountries();
       setCountries(data);
+      console.log(countries);
        })(); 
       } catch (error) {
       console.log("Error getting countries");
@@ -27,14 +29,14 @@ const Home = () => {
             </div>
             
           <div className='grid grid-cols-1 pt-10 lg:pt-2 lg:grid-cols-4 2xl:grid-cols-6 gap-12 lg:gap-16 2xl:gap-20 px-5 lg:px-0'>
-            {countries.map((country, index) => (
+            {countries.map((country: CountryGeneral, index) => (
               <Card 
               key={index}
               id={index}
               img={country.flags.png} 
               country={country.name.common} 
               region={country.region} 
-              population={country.population} 
+              population={(country.population).toLocaleString()} 
               capital={country.capital[0]}/>
             ))}
           </div>
