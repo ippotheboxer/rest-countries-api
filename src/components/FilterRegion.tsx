@@ -10,7 +10,7 @@ const FilterRegion = () => {
       };
 
     return (
-        <div className="flex flex-col h-fit justify-center items-start absolute right-0 top-0">
+        <div className="flex flex-col h-fit justify-center items-start absolute top-20 lg:right-0 lg:top-0">
             {open ? ( <>
                 <button onClick={handleOpen} 
                 className='shadow rounded-sm filterWidth text-sm flex flex-row items-center justify-between bgElement py-3 px-6'>
@@ -38,7 +38,7 @@ const FilterRegion = () => {
                 </>
                 
             ) : <button onClick={handleOpen} 
-                className='absolute top-0 right-0 shadow rounded-sm filterWidth text-sm flex flex-row items-center justify-between bgElement py-3 px-6'>
+                className='shadow rounded-sm filterWidth text-sm flex flex-row items-center justify-between bgElement py-3 px-6'>
                 Filter by Region <RiArrowDropRightLine className='ml-8 text-lg'/>
                 </button>}
         </div>
