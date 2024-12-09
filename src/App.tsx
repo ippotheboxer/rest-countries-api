@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from "react-router"
 import Header from './components/Header';
 import { ThemeProvider } from './context/ThemeContext';
 import Home from './pages/Home';
+import SpecificCountry from './pages/SpecificCountry';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/home' element={<Home /> } />
+              <Route path='/:countryName' element={<SpecificCountry />} />
             </Routes>
           </BrowserRouter>
         </main>

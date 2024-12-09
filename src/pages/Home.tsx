@@ -15,14 +15,13 @@ const Home = () => {
       (async () => {
       const {data} = await getCountries();
       setCountries(data);
-      console.log(countries);
        })(); 
       } catch (error) {
       console.log("Error getting countries");
   }
   }, []);
   return (
-    <div className='flex flex-col py-10 px-10'>
+    <div className='flex flex-col py-12 px-16'>
             <div className='flex flex-col lg:flex-row justify-between'>
               <SearchInput />
               <FilterRegion />
@@ -33,6 +32,7 @@ const Home = () => {
               <Card 
               key={index}
               id={index}
+              flagAlt={country.flags.alt} 
               img={country.flags.png} 
               country={country.name.common} 
               region={country.region} 
