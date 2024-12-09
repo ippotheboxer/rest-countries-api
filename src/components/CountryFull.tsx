@@ -55,7 +55,7 @@ const CountryFull = (props) => {
             </div>
             
             </div>
-        <div className='flex flex-col items-start lg:flex-row lg:items-center lg:mt-24'>
+        <div className='flex flex-col items-start lg:flex-row lg:items-center lg:mt-24 lg:col-span-2'>
         <p className='text-sm font-semibold lg:mr-2'> Border Countries: </p>
         <div className='flex flex-row justify-start items-center'>
                 {props.borderCountries.map((country: string) => 

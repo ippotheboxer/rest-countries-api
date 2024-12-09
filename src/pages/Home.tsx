@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
   return (
     <div className='flex flex-col py-12 px-16'>
-            <div className='flex flex-col lg:flex-row justify-between'>
+            <div className='flex flex-col lg:flex-row justify-between relative'>
               <SearchInput />
               <FilterRegion />
             </div>
