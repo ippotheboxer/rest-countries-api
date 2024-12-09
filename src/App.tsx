@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Routes} from "react-router"
 
 // Components
 import Header from './components/Header';
-import { ThemeProvider } from './context/ThemeContext';
+import { ThemeProvider } from './context/themeProvider';
 import Home from './pages/Home';
 import SpecificCountry from './pages/SpecificCountry';
 

@@ -6,26 +6,53 @@
   font-family: "Nunito Sans", sans-serif;
 }
 
+[data-theme="light"] {
+  --bg-color: hsl(0, 0%, 100%);
+  --text-color: hsl(200, 15%, 8%);
+  --bg-color-element: hsl(0, 0%, 100%);
+  --search-text: hsl(0, 0%, 52%);  
+  --box-shadow: 0px 3px 10px 2px #F0F0F0;
+}
+
+[data-theme="dark"] {
+  --bg-color: hsl(207, 26%, 17%);
+  --bg-color-element: hsl(209, 23%, 22%);
+  --text-color: hsl(0, 0%, 100%);
+  --box-shadow: 0px 3px 10px 2px #20282B;
+  --search-text: hsl(0, 0%, 100%);  
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.header {
+  background-color: var(--bg-color);
+}
+
+main {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+.bgElement {
+  background-color: var(--bg-color-element);
+}
+
+.topMenu, .glassIcon, .formInput {
+  color: var(--search-text);
+}
+
 @layer components {
-  .header {
-    background-color: hsl(0, 0%, 100%);
-  }
-  main {
-    background-color: hsl(0, 0%, 98%);
-  }
-  .topMenu {
-    color: hsl(0, 0%, 52%);  
-  }
-  .glassIcon {
-    color: hsl(0, 0%, 52%);
-  }
   .filterWidth {
     width: 240px;
   }
   .countryFlag {
     @apply md:h-44;
-  }
-  .lightShadow {
-    box-shadow: 0px 3px 10px 2px #F0F0F0;
   }
 }

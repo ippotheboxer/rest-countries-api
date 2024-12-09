@@ -1,13 +1,8 @@
 import React from 'react';
-import { BiArrowBack } from "react-icons/bi";
 
 const CountryFull = (props) => {
-    const backClick = () => {
-        window.location="/";
-    }
   return (
     <div>
-        <button onClick={backClick} className='flex flex-row items-center justify-center'><BiArrowBack /> Back</button>
     <div className='grid grid-rows lg:grid-cols-2'>
         <div>
             <img src={props.img} alt={`${props.flagAlt}`} />

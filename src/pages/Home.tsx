@@ -3,11 +3,9 @@ import SearchInput from '../components/SearchInput';
 import FilterRegion from '../components/FilterRegion';
 import Card from '../components/Card';
 import { getCountries } from '../api/countries';
-import { ThemeContext } from '../context/ThemeContext';
 import { CountryGeneral } from '../Model';
 
 const Home = () => {
-  const { theme } = useContext(ThemeContext);
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {

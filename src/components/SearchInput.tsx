@@ -8,7 +8,7 @@ const SearchInput = () => {
         setCountryInput("");
     }
   return (
-    <div className='flex flex-row items-center bg-white lightShadow md:w-4/12 h-fit py-3 px-6 rounded-sm topMenu mb-10 w-full'>
+    <div className='flex flex-row items-center bgElement shadow md:w-4/12 h-fit py-3 px-6 rounded-sm topMenu mb-10 w-full'>
         <HiMagnifyingGlass className='glassIcon'/>
         <form action="submit"
         onSubmit={handleSubmit}
@@ -16,7 +16,7 @@ const SearchInput = () => {
             <input 
             type="text" 
             placeholder='Search for a country...' 
-            className='pl-2 outline-none formInput text-sm'
+            className='pl-2 outline-none formInput text-sm bgElement'
             onChange={e => setCountryInput(e.target.value)}
             value={countryInput} 
             />
