@@ -55,4 +55,7 @@ main {
   .countryFlag {
     @apply md:h-44;
   }
+  .infoP {
+    @apply pb-2;
+  }
 }
