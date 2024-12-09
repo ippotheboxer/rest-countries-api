@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 interface cardData {
     id: number,
@@ -12,7 +13,9 @@ interface cardData {
 }
 
 const Card = (props:cardData) => {
-  return ( <div className='flex flex-col bg-white rounded-lg lightShadow' id={props.id}>
+  return ( 
+    <Link to={`${props.country}`}>
+  <div className='flex flex-col bg-white rounded-lg lightShadow hover:scale-105 transition duration-400' id={props.id}>
     <img src={props.img} alt={props.flagAlt} className='rounded-tr-lg rounded-tl-lg countryFlag w-100 lightShadow'/>
     <div className='pt-8 pb-12 px-4'>
     <h2 className='text-lg font-bold pb-4'>{props.country}</h2>
@@ -27,6 +30,7 @@ const Card = (props:cardData) => {
         </p>
     </div>
     </div>
+    </Link>
     );
 }
 
