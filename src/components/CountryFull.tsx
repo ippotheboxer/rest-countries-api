@@ -14,7 +14,7 @@ const CountryFull = (props) => {
             <img src={props.img} alt={props.flagAlt} className='w-full shadow'/>
         </div>
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-4'>
-            <div>
+            <div className='pr-20'>
             <h2 className='text-lg font-bold pb-4'>{props.country}</h2>    
 
             <p className='text-sm font-semibold infoP'>
@@ -38,7 +38,7 @@ const CountryFull = (props) => {
             </p>
             </div>
 
-            <div>
+            <div className='lg:pt-10'>
             <p className='text-sm font-semibold infoP'>
                 Top Level Domain: <span className='font-light'>{props.tld}</span>
             </p>
