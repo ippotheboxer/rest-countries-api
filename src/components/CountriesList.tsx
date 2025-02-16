@@ -36,8 +36,9 @@ const CountriesList: React.FC = () => {
             console.log("Error getting countries");
         }
     }, []);
+
   return (
-    <div className='grid grid-cols-1 pt-40 lg:pt-20 lg:grid-cols-4 2xl:grid-cols-6 gap-12 lg:gap-16 2xl:gap-20 px-5 lg:px-0'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-40 lg:pt-20 gap-8 md:gap-12 lg:gap-10 2xl:gap-20 sm:px-20 md:px-0'>
             {countries.map((country: countryProp, index) => (
               <Card 
               key={index}

@@ -18,7 +18,7 @@
   --bg-color: hsl(207, 26%, 17%);
   --bg-color-element: hsl(209, 23%, 22%);
   --text-color: hsl(0, 0%, 100%);
-  --box-shadow: 0px 3px 10px 2px #20282B;
+  --box-shadow: 0px 3px 10px 2px #1d2934;
   --search-text: hsl(0, 0%, 100%);  
 }
 
@@ -51,9 +51,6 @@ main {
 @layer components {
   .filterWidth {
     width: 240px;
-  }
-  .countryFlag {
-    @apply md:h-44;
   }
   .infoP {
     @apply pb-2;

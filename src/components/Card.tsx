@@ -14,18 +14,18 @@ const Card: React.FC<cardData> = ({country, img, flagAlt, population, region, ca
   return ( 
     <Link to={`${country}`}>
       <div {...props} className='flex flex-col bgElement rounded-lg shadow hover:scale-105 transition duration-400'>
-        <img src={img} alt={flagAlt} className='rounded-tr-lg rounded-tl-lg countryFlag w-100 shadow'/>
-        <div className='pt-8 pb-12 px-4'>
-        <h2 className='text-lg font-bold pb-4'>{country}</h2>
-        <p className='text-sm font-semibold'>
+        <img src={img} alt={flagAlt} className='rounded-tr-lg rounded-tl-lg w-full countryFlag shadow object-fit h-60 md:h-48'/>
+        <div className='pt-4 md:pt-8 pb-12 px-4'>
+          <h2 className='text-lg font-bold pb-2 md:pb-4'>{country}</h2>
+          <p className='text-sm font-semibold'>
             Population: <span className='font-light'>{population}</span>
-            </p>
-        <p className='text-sm font-semibold'>
-        Region: <span className='font-light'>{region}</span>
-        </p>
-        <p className='text-sm font-semibold'>
+          </p>
+          <p className='text-sm font-semibold'>
+            Region: <span className='font-light'>{region}</span>
+          </p>
+          <p className='text-sm font-semibold'>
             Capital: <span className='font-light'>{capital}</span>
-            </p>
+          </p>
         </div>
       </div>
     </Link>
