@@ -1,7 +1,7 @@
 import React from "react";
 import ThemeToggle from "./ThemeToggle";
 
-export default function Header() {
+const Header: React.FC = () => {
     return (
         <div className="header flex items-center justify-between p-4 shadow">
             <span className="pl-6 text-xl font-bold">Where in the world?</span>
@@ -9,3 +9,5 @@ export default function Header() {
         </div>
     )
 }
+
+export default Header;
