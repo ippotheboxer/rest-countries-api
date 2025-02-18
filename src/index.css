@@ -48,11 +48,10 @@ main {
   color: var(--search-text);
 }
 
-@layer components {
-  .filterWidth {
-    width: 240px;
-  }
-  .infoP {
-    @apply pb-2;
-  }
+.filterStyling {
+  @apply shadow rounded-sm text-base flex flex-row items-center justify-between bgElement p-4;
+}
+
+.infoP {
+  @apply pb-1 lg:pb-2;
 }

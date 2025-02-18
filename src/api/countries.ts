@@ -7,7 +7,11 @@ export async function getCountries() {
 }
 
 export async function getCountryByName(inputName: string) {
-    return await axios.get(`${API_URL}/name/${inputName}`);
+    return await axios.get(`${API_URL}/name/${inputName}?fullText=true`);
+}
+
+export async function searchCountries(query: string) {
+    return await axios.get(`${API_URL}/name/${query}`);
 }
 
 export async function getCountriesByRegion(selectedRegion: string) {

@@ -27,12 +27,12 @@ const FilterRegion: React.FC = () => {
         <>
           <button
             onClick={handleOpen}
-            className="shadow rounded-sm filterWidth text-sm flex flex-row items-center justify-between bgElement py-3 px-6"
+            className="filterStyling"
           >
             {selectedRegion || "Filter by Region"} <RiArrowDropDownLine className="ml-8 text-lg" />
           </button>
-          <div className="filterWidth mt-2 bgElement py-3 px-6 z-10 shadow rounded-sm">
-            <ul className="menu mt-1 flex flex-col text-sm">
+          <div className="mt-2 bgElement p-4 text-base z-10 rounded-md w-full">
+            <ul className="menu mt-1 flex flex-col">
               {["Africa", "Americas", "Asia", "Europe", "Oceania"].map((region) => (
                 <li key={region} className="pb-1">
                   <button onClick={() => handleRegionSelect(region)}>{region}</button>
@@ -47,7 +47,7 @@ const FilterRegion: React.FC = () => {
       ) : (
         <button
           onClick={handleOpen}
-          className="shadow rounded-sm filterWidth text-sm flex flex-row items-center justify-between bgElement py-3 px-6"
+          className="filterStyling"
         >
           {selectedRegion || "Filter by Region"} <RiArrowDropRightLine className="ml-8 text-lg" />
         </button>

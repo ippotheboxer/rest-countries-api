@@ -3,7 +3,8 @@ import SearchInput from '../components/SearchInput';
 import FilterRegion from '../components/FilterRegion';
 import CountriesList from '../components/CountriesList';
 import { FilterContext, FilterProvider } from "../context/FilterContext";
-import { getCountries, getCountryByName, getCountriesByRegion } from '../api/countries';
+import { getCountries, getCountryByName, getCountriesByRegion, searchCountries } from '../api/countries';
+import Wrapper from '../components/Wrapper';
 
 interface Country {
   flags: {
@@ -45,7 +46,7 @@ const HomeContent: React.FC = () => {
         let response;
 
         if (searchTerm) {
-          response = await getCountryByName(searchTerm.trim()).catch(() => {
+          response = await searchCountries(searchTerm.trim()).catch(() => {
             setError("No results found for that search.");
             return { data: [] };
           });
@@ -69,14 +70,16 @@ const HomeContent: React.FC = () => {
   }, [searchTerm, selectedRegion]);
 
   return (
-      <div className='flex flex-col py-12 px-16'>
-        <div className='flex flex-col lg:flex-row justify-between relative'>
-          <SearchInput />
-          <FilterRegion />
-        </div>
-        {loading && <p className='pt-40'>Loading...</p>}
-        {error && <p className="text-red-500 pt-40">{error}</p>}
-        <CountriesList countries={countries}/>
+      <div className='flex flex-col py-10'>
+        <Wrapper>
+          <div className='pb-8 flex flex-col lg:flex-row justify-between relative'>
+            <SearchInput />
+            <FilterRegion />
+          </div>
+          {loading && <p className='pt-36'>Loading...</p>}
+          {error && <p className="text-red-500 pt-36">{error}</p>}
+          <CountriesList countries={countries}/>
+        </Wrapper>
       </div>
       )
     };

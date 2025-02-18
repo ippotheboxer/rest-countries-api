@@ -8,8 +8,8 @@ const ThemeToggle: React.FC = () => {
   return (
       <button
         onClick={toggleTheme}
-        className="pr-6 text-sm flex justify-center items-center cursor-pointer">
-          {darkMode ? (
+        className="text-base font-semibold flex justify-center items-center cursor-pointer">
+          {!darkMode ? (
             <>
               <IoMoonOutline className="mr-2"/> Dark Mode
             </>

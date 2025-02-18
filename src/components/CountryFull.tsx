@@ -46,19 +46,17 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
       }, [borders]);
 
   return (
-    <div className='pt-8 md:px-10 lg:px-20' {...props}>
-         <button onClick={() => navigate("/")} className='mb-8 text-sm flex flex-row shadow bgElement rounded-sm py-2 px-8 items-center justify-center'>
-            <BiArrowBack className='mr-2'/> Back
+    <div className='mt-10 lg:pt-20 px-5 md:px-10 xl:px-20' {...props}>
+         <button onClick={() => navigate("/")} className='mb-8 text-sm flex flex-row shadow bgElement rounded-md p-3 px-10 items-center justify-center'>
+            <BiArrowBack className='mr-2 w-5 h-5'/> Back
         </button>
-    <div className='flex flex-col lg:flex-row lg:justify-start justify-center lg:items-start pt-4 lg:pt-8'>
-        <div className='pr-0 lg:mr-10 xl:mr-20'>
-            <img src={img} alt={flagAlt} className='shadow w-[400px] h-[300px] sm:w-[400px] sm:h-[250px] md:w-[500px] md:h-[300px] lg:w-[550px] lg:h-[350px]'/>
-        </div>
-        <div className='flex flex-col items-start justify-center'>
-            <h2 className='text-2xl font-bold pb-4 mt-4 lg:mt-8'>{country}</h2>
+    <div className='flex flex-col lg:flex-row lg:justify-start justify-center lg:items-start pt-4 lg:pt-12'>
+        <img src={img} alt={flagAlt} className='self-center md:self-auto shadow w-[300px] h-[200px] sm:w-[400px] sm:h-[250px] md:w-[450px] md:h-[300px] lg:w-[500px] lg:h-[350px] xl:w-[560px] xl:h-[400px]'/>
+        <div className='flex flex-col items-start justify-center md:pl-10'>
+            <h2 className='text-xl md:text-2xl lg:text-4xl font-bold pb-6 mt-5 lg:mt-10'>{country}</h2>
             <div>
                 <div className='flex flex-col lg:flex-row'> 
-                <div className='lg:mr-5 xl:mr-20 2xl:mr-40'>  
+                <div>  
                     <p className='text-sm md:text-base font-semibold infoP'>
                         Native Name: <span className='font-light'>{nativeName}</span>
                     </p>
@@ -76,7 +74,7 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
                     </p>
                 </div>
 
-                    <div className='mt-4 lg:mt-0 lg:ml-10'>
+                    <div className='mt-4 lg:mt-0 ml-0 lg:ml-30 xl:ml-40 2xl:ml-60'>
                         <p className='text-sm md:text-base font-semibold infoP'>
                             Top Level Domain: <span className='font-light'>{tld}</span>
                         </p>
@@ -99,7 +97,7 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
         {borderCountries.length > 0 &&
             <div className='flex flex-col items-start lg:flex-row lg:items-center lg:mt-24 pt-4'>
                 <p className='text-sm md:text-base font-semibold lg:mr-2 pb-4 lg:pb-0'> Border Countries: </p>
-                <div className='flex flex-row items-center'>
+                <div className='flex flex-row items-center flex-wrap'>
                     {borderCountries.map((countryName, index) => (
                         <Link key={index} to={`/${countryName}`}>
                             <button className='font-light text-sm bgElement shadow py-1 px-4 mr-2'>

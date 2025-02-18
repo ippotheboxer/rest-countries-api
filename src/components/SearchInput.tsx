@@ -19,13 +19,13 @@ const SearchInput: React.FC = () => {
   }
 
   return (
-    <div className='absolute top-0 flex flex-row items-center bgElement shadow md:w-4/12 h-fit py-3 px-6 rounded-sm topMenu mb-10 w-full'>
-        <HiMagnifyingGlass className='glassIcon'/>
+    <div className='absolute top-0 flex flex-row items-center bgElement shadow md:w-4/12 h-fit p-4 px-6 rounded-sm topMenu mb-10 w-full'>
+        <HiMagnifyingGlass className='glassIcon w-5 h-5'/>
         <form onSubmit={handleSubmit}>
             <input 
             type="text" 
             placeholder='Search for a country...' 
-            className='pl-2 outline-none formInput text-sm bgElement'
+            className='pl-2 outline-none formInput text-base bgElement'
             onChange={handleInputChange}
             value={searchTerm}
             />
