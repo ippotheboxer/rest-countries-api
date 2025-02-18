@@ -1,24 +1,32 @@
 import { useState, createContext, useContext, useEffect, ReactNode } from "react";
 
-type ThemeType = "light" | "dark";
+// Define Theme Context Type
+interface ThemeContextType {
+  darkMode: boolean;
+  toggleTheme: () => void;
+}
 
-type ThemeContextProviderProps = {
-  children: ReactNode;
-};
+// Create context with correct type (or undefined initially)
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const ThemeContext = createContext<ThemeType>("light");
-
+// Custom hook to use ThemeContext
 export const useTheme = () => {
-  return useContext(ThemeContext);
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
 };
 
-export const ThemeProvider = ({ children }: ThemeContextProviderProps) => {
+// Theme Provider Component
+export const ThemeProvider: React.FC<{children: ReactNode}> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
 
   const toggleTheme = () => {
-    setDarkMode((mode) => !mode);
+    setDarkMode((prevMode) => !prevMode);
   };
 
+  // Apply theme changes
   useEffect(() => {
     document.documentElement.setAttribute(
       "data-theme",
@@ -27,7 +35,7 @@ export const ThemeProvider = ({ children }: ThemeContextProviderProps) => {
   }, [darkMode]);
 
   return (
-    <ThemeContext.Provider value={{ toggleTheme, darkMode }}>
+    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

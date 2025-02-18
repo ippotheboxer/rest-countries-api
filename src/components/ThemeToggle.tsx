@@ -3,7 +3,7 @@ import { HiOutlineSun } from "react-icons/hi2";
 import { useTheme } from "../context/themeProvider";
 import React from 'react';
 
-const ThemeToggle = () => {
+const ThemeToggle: React.FC = () => {
   const { toggleTheme, darkMode } = useTheme();
   return (
       <button
