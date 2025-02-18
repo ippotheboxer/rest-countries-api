@@ -45,7 +45,7 @@ const HomeContent: React.FC = () => {
         let response;
 
         if (searchTerm) {
-          response = await getCountryByName(searchTerm).catch(() => {
+          response = await getCountryByName(searchTerm.trim()).catch(() => {
             setError("No results found for that search.");
             return { data: [] };
           });
@@ -74,8 +74,8 @@ const HomeContent: React.FC = () => {
           <SearchInput />
           <FilterRegion />
         </div>
-        {loading && <p>Loading...</p>}
-        {error && <p className="text-red-500">{error}</p>}
+        {loading && <p className='pt-40'>Loading...</p>}
+        {error && <p className="text-red-500 pt-40">{error}</p>}
         <CountriesList countries={countries}/>
       </div>
       )
