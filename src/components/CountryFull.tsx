@@ -47,7 +47,7 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
 
   return (
     <div className='mt-10 px-5 md:px-10 xl:px-20' {...props}>
-         <button onClick={() => navigate("/rest-countries-api")} className='mb-8 text-sm flex flex-row shadow bgElement rounded-md p-3 px-10 items-center justify-center'>
+         <button onClick={() => navigate("/")} className='mb-8 text-sm flex flex-row shadow bgElement rounded-md p-3 px-10 items-center justify-center'>
             <BiArrowBack className='mr-2 w-5 h-5'/> Back
         </button>
     <div className='flex flex-col lg:flex-row lg:justify-start justify-center lg:items-start pt-4 lg:pt-12'>
@@ -101,7 +101,7 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
                 <p className='text-sm md:text-base font-semibold lg:mr-2 pb-4 lg:pb-0'> Border Countries: </p>
                 <div className='flex flex-row items-center w-full md:w-9/12 flex-wrap'>
                     {borderCountries.map((countryName, index) => (
-                        <Link key={index} to={`/rest-countries-api/${countryName}`}>
+                        <Link key={index} to={`/${countryName}`}>
                             <button className='font-light text-sm bgElement shadow py-1 px-4 mr-2'>
                         {countryName}
                     </button>
