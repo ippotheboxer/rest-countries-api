@@ -75,8 +75,8 @@ const SpecificCountry: React.FC = () => {
                 region={country.region} 
                 subRegion={country.subregion}
                 population={(country.population).toLocaleString()} 
-                capital={country.capital[0]}
-                tld={country.tld[0]}
+                capital={country.capital[0] || "N/A"}
+                tld={country.tld?.[0] || "N/A"}
                 currency={Object.values(country.currencies)[0].name}
                 languages={country.languages}
                 borders={country.borders}
