@@ -3,7 +3,7 @@ import SearchInput from '../components/SearchInput';
 import FilterRegion from '../components/FilterRegion';
 import CountriesList from '../components/CountriesList';
 import { FilterContext, FilterProvider } from "../context/FilterContext";
-import { getCountries, getCountryByName, getCountriesByRegion, searchCountries } from '../api/countries';
+import { getCountries, getCountriesByRegion, searchCountries } from '../api/countries';
 import Wrapper from '../components/Wrapper';
 
 interface Country {

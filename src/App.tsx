@@ -14,9 +14,9 @@ const App:React.FC = () => {
             <Header />
             <BrowserRouter>
                 <Routes>
-                  <Route path='/' element={<Home />} />
-                  <Route path='/home' element={<Home /> } />
-                  <Route path='/:countryName' element={<SpecificCountry />} />
+                  <Route path='/rest-countries-api' element={<Home />} />
+                  <Route path='/rest-countries-api/home' element={<Home /> } />
+                  <Route path='/rest-countries-api/:countryName' element={<SpecificCountry />} />
                 </Routes>
               </BrowserRouter>
             </main>
