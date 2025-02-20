@@ -3,7 +3,7 @@ import SearchInput from '../components/SearchInput';
 import FilterRegion from '../components/FilterRegion';
 import CountriesList from '../components/CountriesList';
 import { FilterContext, FilterProvider } from "../context/FilterContext";
-import { getCountries, getCountriesByRegion, searchCountries } from '../api/countries';
+import { getCountries, getCountriesByRegion } from '../api/countries';
 import Wrapper from '../components/Wrapper';
 
 interface Country {
@@ -45,22 +45,29 @@ const HomeContent: React.FC = () => {
       try {
         let response;
 
-        if (searchTerm) {
-          response = await searchCountries(searchTerm.trim()).catch(() => {
-            setError("No results found for that search.");
-            return { data: [] };
-          });
-        } else if (selectedRegion) {
+        if (selectedRegion) {
           response = await getCountriesByRegion(selectedRegion);
         } else {
           response = await getCountries();
         }
-        setCountries(response.data);
 
+        let filteredCountries = response.data;
+        if (searchTerm) {
+          filteredCountries = filteredCountries.filter((country: Country) =>
+            country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+        }
+
+        if (filteredCountries.length === 0) {
+          setError("No results found for that search.");
+        } else {
+          setError(null);
+        }
+
+        setCountries(filteredCountries);
       } catch (err) {
         setError("Failed to load countries. Please try again.");
         setCountries([]);
-
       } finally {
         setLoading(false);
       }

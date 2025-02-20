@@ -11,11 +11,11 @@ const ThemeToggle: React.FC = () => {
         className="text-sm lg:text-base font-semibold flex justify-center items-center cursor-pointer">
           {!darkMode ? (
             <>
-              <IoMoonOutline className="mr-2"/> Dark Mode
+              <IoMoonOutline className="mr-2" size={15}/> Dark Mode
             </>
           ) : (
             <>
-              <HiOutlineSun className="mr-2"/> Light Mode
+              <HiOutlineSun className="mr-2" size={20}/> Light Mode
             </>
           )}
         
