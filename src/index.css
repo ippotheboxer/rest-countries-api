@@ -12,7 +12,8 @@
   --text-color: hsl(200, 15%, 8%);
   --bg-color-element: hsl(0, 0%, 100%);
   --search-text: hsl(0, 0%, 52%);  
-  --box-shadow: 0px 3px 10px 5px #F0F0F0;
+  --box-shadow: 0px 3px 5px 1px #F0F0F0;
+  --hover-border: #eaeff3;
 }
 
 [data-theme="dark"] {
@@ -20,8 +21,9 @@
   --header-bg-color: hsl(209, 23%, 22%);
   --bg-color-element: hsl(209, 23%, 22%);
   --text-color: hsl(0, 0%, 100%);
-  --box-shadow: 0px 3px 10px 5px #1d2934;
-  --search-text: hsl(0, 0%, 100%);  
+  --box-shadow: 0px 3px 5px 1px #1d2934;
+  --search-text: hsl(0, 0%, 100%);
+  --hover-border: #58646F;  
 }
 
 body {
@@ -44,6 +46,16 @@ main {
 
 .bgElement {
   background-color: var(--bg-color-element);
+}
+
+.borderCountry {
+  @apply transition duration-100 ease-in-out; 
+  background-color: var(--bg-color-element);
+  box-shadow: var(--box-shadow);
+  
+}
+.borderCountry:hover {
+  background-color: var(--hover-border);
 }
 
 .topMenu, .glassIcon, .formInput {

@@ -102,7 +102,7 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
                 <div className='flex flex-row items-center w-full md:w-9/12 flex-wrap'>
                     {borderCountries.map((countryName, index) => (
                         <Link key={index} to={`/${countryName}`}>
-                            <button className='font-light text-sm bgElement shadow py-1 px-4 mr-2'>
+                            <button className='font-light text-sm borderCountry py-1 px-4 mr-2'>
                         {countryName}
                     </button>
                     </Link>))}
