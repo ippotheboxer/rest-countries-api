@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import SearchInput from '../components/SearchInput';
 import FilterRegion from '../components/FilterRegion';
 import CountriesList from '../components/CountriesList';
-import { FilterContext, FilterProvider } from "../context/FilterContext";
+import { FilterContext } from "../context/FilterContext";
 import { getCountries, getCountriesByRegion } from '../api/countries';
 import Wrapper from '../components/Wrapper';
 
@@ -92,9 +92,7 @@ const HomeContent: React.FC = () => {
     };
 
 const Home: React.FC = () => (
-  <FilterProvider>
     <HomeContent />
-  </FilterProvider>
   );
     
   export default Home;

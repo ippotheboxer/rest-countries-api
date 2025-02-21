@@ -6,10 +6,12 @@ import Home from './pages/Home';
 import SpecificCountry from './pages/SpecificCountry';
 // Context
 import { ThemeProvider } from './context/themeProvider';
+import { FilterProvider } from './context/FilterContext';
 
 const App:React.FC = () => {
   return (
     <ThemeProvider>
+      <FilterProvider>
           <main className='main justify-center lg:justify-start'>
             <Header />
             <BrowserRouter>
@@ -20,6 +22,7 @@ const App:React.FC = () => {
                 </Routes>
               </BrowserRouter>
             </main>
+            </FilterProvider>
         </ThemeProvider>
   );
 }
