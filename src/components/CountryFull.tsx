@@ -3,10 +3,6 @@ import { BiArrowBack } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-type Languages = {
-    [key: string]: string;
-  };
-
 interface fullCountryProps {
     flagAlt: string;
     img: string;
@@ -18,7 +14,7 @@ interface fullCountryProps {
     subRegion: string;
     tld: string;
     currency: string;
-    languages: Languages;
+    languages: string;
     borders: string[];
 }
 
@@ -51,15 +47,16 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
             <BiArrowBack className='mr-2 w-5 h-5'/> Back
         </button>
     <div className='flex flex-col lg:flex-row lg:justify-start justify-center lg:items-start pt-4 lg:pt-12'>
-        <img src={img} alt={!flagAlt ? `Flag of country ${country}` : flagAlt} className='shadow self-center lg:self-auto object-fit lg:object-cover w-fit h-72 md:w-[400px] lg:w-[500px] lg:h-[400px] xl:w-[600px] xl:h-[400px]'/>
+        <img src={img} alt={!flagAlt ? `Flag of country ${country}` : flagAlt} className='shadow self-center lg:self-auto object-fit lg:object-cover w-fit h-72 md:w-[400px] lg:w-[500px] xl:w-[600px] md:h-fit'/>
         <div className='flex flex-col items-start justify-center md:pl-10'>
             <h2 className='text-xl md:text-2xl lg:text-4xl font-bold pb-6 mt-5 lg:mt-10'>{country}</h2>
             <div>
                 <div className='flex flex-col lg:flex-row'> 
-                <div>  
+                <div>
+                    {nativeName !== "N/A" &&  
                     <p className='text-sm md:text-base font-semibold infoP'>
                         Native Name: <span className='font-light'>{nativeName}</span>
-                    </p>
+                    </p>} 
                     <p className='text-sm md:text-base font-semibold infoP'>
                         Population: <span className='font-light'>{population}</span>
                     </p>
@@ -69,17 +66,15 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
                     <p className='text-sm md:text-base font-semibold infoP'>
                          Sub Region: <span className='font-light'>{subRegion}</span>
                     </p>
-                    {capital !== "N/A" && 
                     <p className='text-sm md:text-base font-semibold infoP'>
                         Capital: <span className='font-light'>{capital}</span>
-                    </p>}
+                    </p>
                 </div>
 
                     <div className='mt-4 lg:mt-0 ml-0 lg:ml-32 xl:ml-40 2xl:ml-60'>
-                        {tld !== "N/A" && 
                         <p className='text-sm md:text-base font-semibold infoP'>
                             Top Level Domain: <span className='font-light'>{tld}</span>
-                        </p>}
+                        </p>
                         <p className='text-sm md:text-base font-semibold infoP'>
                             Currency: <span className='font-light'>{currency}</span>
                         </p>
@@ -88,7 +83,7 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
                     <div className='flex flex-row'>
                         <p className='text-sm md:text-base font-semibold infoP pr-1'>Languages: </p> 
                         <ul className='text-sm md:text-base font-light flex flex-row'>
-                        <li className='pr-1'>{Object.values(languages).join(", ")}</li>
+                            <li className='pr-1'>{languages}</li>
                         </ul>
                     </div>
                     </div>

@@ -67,16 +67,16 @@ const SpecificCountry: React.FC = () => {
                 <CountryFull
                 key={index}
                 img={country.flags.svg}
-                nativeName={Object.values(country.name.nativeName)[0].common}
+                nativeName={country.name.nativeName ? Object.values(country.name.nativeName)[0]?.common: "N/A"}
                 flagAlt={country.flags.alt} 
                 country={country.name.common} 
                 region={country.region} 
                 subRegion={country.subregion}
                 population={(country.population).toLocaleString()} 
-                capital={country.capital[0] || "N/A"}
-                tld={country.tld?.[0] || "N/A"}
-                currency={Object.values(country.currencies)[0].name}
-                languages={country.languages}
+                capital={country.capital?.[0] || "No capital"}
+                tld={country.tld?.[0] || "None"}
+                currency={country.currencies ? Object.values(country.currencies)[0]?.name : "No official currency"}
+                languages={country.languages ? Object.values(country.languages).join(", ") : "No official language"}
                 borders={country.borders}
                 />
             ))}
