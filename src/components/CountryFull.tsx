@@ -51,7 +51,7 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
             <BiArrowBack className='mr-2 w-5 h-5'/> Back
         </button>
     <div className='flex flex-col lg:flex-row lg:justify-start justify-center lg:items-start pt-4 lg:pt-12'>
-        <img src={img} alt={flagAlt} className='self-center lg:self-auto shadow w-[300px] h-[200px] sm:w-[400px] sm:h-[250px] md:w-[450px] md:h-[300px] lg:w-[500px] lg:h-[350px] xl:w-[560px] xl:h-[400px]'/>
+        <img src={img} alt={!flagAlt ? `Flag of country ${country}` : flagAlt} className='shadow self-center lg:self-auto object-fit lg:object-cover w-fit h-72 md:w-[400px] lg:w-[500px] lg:h-[400px] xl:w-[600px] xl:h-[400px]'/>
         <div className='flex flex-col items-start justify-center md:pl-10'>
             <h2 className='text-xl md:text-2xl lg:text-4xl font-bold pb-6 mt-5 lg:mt-10'>{country}</h2>
             <div>

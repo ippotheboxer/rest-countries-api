@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CountryFull from "../components/CountryFull";
 import { getCountryByName } from "../api/countries";
+import Loading from "../components/Loading";
 
 type Languages = {
     [key: string]: string;
@@ -42,33 +43,30 @@ interface countryProp {
 const SpecificCountry: React.FC = () => {
     const { countryName } = useParams<string>();
     const [country, setCountry] = useState([]);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const safeCountryName = countryName ?? '';
 
     useEffect(() => {
         try { (
             async () => {
-                setLoading(true);
+                setIsLoading(true);
                 const {data} = await getCountryByName(safeCountryName);
                 setCountry(data);
-                setLoading(false);
+                setIsLoading(false);
            })(); 
           } catch (error) {
           console.log("Error getting countries");
       }
       }, [safeCountryName]);
 
-      if (loading) {
-        return <p className="flex items-center justify-center pt-10">Loading...</p>
-      }
-
     return (
         <div className="flex lg:justify-start justify-center items-center">
+            {isLoading && <Loading />}
             {country.map((country: countryProp, index) => (
                 <CountryFull
                 key={index}
-                img={country.flags.png}
+                img={country.flags.svg}
                 nativeName={Object.values(country.name.nativeName)[0].common}
                 flagAlt={country.flags.alt} 
                 country={country.name.common} 

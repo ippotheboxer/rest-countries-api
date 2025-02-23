@@ -5,6 +5,7 @@ import CountriesList from '../components/CountriesList';
 import { FilterContext } from "../context/FilterContext";
 import { getCountries, getCountriesByRegion } from '../api/countries';
 import Wrapper from '../components/Wrapper';
+import Loading from '../components/Loading';
 
 interface Country {
   flags: {
@@ -83,8 +84,8 @@ const HomeContent: React.FC = () => {
             <SearchInput />
             <FilterRegion />
           </div>
-          {loading && <p className='pt-36'>Loading...</p>}
-          {error && <p className="text-red-500 pt-36">{error}</p>}
+          {loading && <Loading /> }
+          {error && <p className="text-red-500">{error}</p>}
           <CountriesList countries={countries}/>
         </Wrapper>
       </div>
