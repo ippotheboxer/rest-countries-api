@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CountryFull from "../components/CountryFull";
 import { getCountryByName } from "../api/countries";
-import Loading from "../components/Loading";
+import CountryFullSkeleton from "../components/CountryFullSkeleton";
 
 type Languages = {
     [key: string]: string;
@@ -48,21 +48,27 @@ const SpecificCountry: React.FC = () => {
     const safeCountryName = countryName ?? '';
 
     useEffect(() => {
-        try { (
-            async () => {
-                setIsLoading(true);
-                const {data} = await getCountryByName(safeCountryName);
-                setCountry(data);
-                setIsLoading(false);
-           })(); 
+        const fetchCountry = async () => {
+          try {
+            if (!countryName) return;
+            const { data } = await getCountryByName(safeCountryName);
+            setCountry(data);
           } catch (error) {
-          console.log("Error getting countries");
-      }
+            console.error("Error getting country:", error);
+          } finally {
+            setIsLoading(false);
+          }
+        };
+    
+        fetchCountry();
       }, [safeCountryName]);
+
+      if (isLoading) return (<div className="flex lg:justify-start justify-center items-center">
+        <CountryFullSkeleton />
+        </div>);
 
     return (
         <div className="flex lg:justify-start justify-center items-center">
-            {isLoading && <Loading />}
             {country.map((country: countryProp, index) => (
                 <CountryFull
                 key={index}
@@ -71,7 +77,7 @@ const SpecificCountry: React.FC = () => {
                 flagAlt={country.flags.alt} 
                 country={country.name.common} 
                 region={country.region} 
-                subRegion={country.subregion}
+                subRegion={country.subregion || "None"}
                 population={(country.population).toLocaleString()} 
                 capital={country.capital?.[0] || "No capital"}
                 tld={country.tld?.[0] || "None"}

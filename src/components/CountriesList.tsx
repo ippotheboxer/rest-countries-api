@@ -32,8 +32,8 @@ const CountriesList: React.FC<CountriesListProps> = ({ countries }) => {
             {countries.map((country, index) => (
               <Card 
               key={index}
-              flagAlt={country.flags.alt || "Country flag"} 
-              img={country.flags.svg} 
+              flagAlt={country.flags.alt || `Flag of ${country.name.common}`} 
+              img={country.flags.png} 
               country={country.name.common} 
               region={country.region} 
               population={(country.population).toLocaleString()} 

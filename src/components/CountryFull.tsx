@@ -53,10 +53,9 @@ const CountryFull: React.FC<fullCountryProps> = ({img, flagAlt, country, nativeN
             <div>
                 <div className='flex flex-col lg:flex-row'> 
                 <div>
-                    {nativeName !== "N/A" &&  
                     <p className='text-sm md:text-base font-semibold infoP'>
                         Native Name: <span className='font-light'>{nativeName}</span>
-                    </p>} 
+                    </p>
                     <p className='text-sm md:text-base font-semibold infoP'>
                         Population: <span className='font-light'>{population}</span>
                     </p>
